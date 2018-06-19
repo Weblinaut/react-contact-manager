@@ -2,7 +2,7 @@ require('mongoose-type-email');
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const contact = new mongooseClient.Schema({
-    name : {
+    name: {
       first: {
         type: String,
         required: [true, 'First Name is required']
@@ -11,11 +11,12 @@ module.exports = function (app) {
         type: String,
         required: false
       } },
-    email : {
+    email: {
       type: mongooseClient.SchemaTypes.Email,
-      required: [true, 'Email is required']
+      required: [true, 'Email is required'],
+      unique: true
     },
-    phone : {
+    phone: {
       type: String,
       required: [true, 'Phone is required'],
       validate: {
@@ -23,10 +24,10 @@ module.exports = function (app) {
           return /^\+(?:[0-9] ?){6,14}[0-9]$/.test(v);
         },
         message: '{VALUE} is not a ➥valid international phone number!'
-              }
-            },
-      createdAt: { type: Date, /*/^\+(?:[0-9] ?){6,14}[0-9]$/'default': Date.now*/ }, // Commented out expression for throw error
-      updatedAt: { type: Date, 'default': Date.now }
-      });
-    return mongooseClient.model('contact', contact);
-  };
+      }
+    },
+    createdAt: { type: Date, 'default': Date.now }, // Commented out expression for throw error
+    updatedAt: { type: Date, 'default': Date.now }
+  });
+  return mongooseClient.model('contact', contact);
+};
