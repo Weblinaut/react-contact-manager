@@ -1,7 +1,17 @@
 import React from 'react';
-export default function ContactList(){
+import { Card } from 'semantic-ui-react';
+import ContactCard from './contact-card';
+export default function ContactList({contacts}){
+    const cards = () => {
+        return contacts.map(contact => {
+            return (
+                <ContactCard key={contact._id} contact={contact}/>
+            )
+        })
+    }
     return (
-        <div>
-            <p>No contacts here</p>
-        </div> )
+        <Card.Group>
+            { cards() }
+        </Card.Group>
+    )
 }
