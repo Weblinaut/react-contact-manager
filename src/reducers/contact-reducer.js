@@ -1,13 +1,10 @@
 const defaultState = {
-    contacts: []
-}
+    contacts: [],
+    contact: {name:{}},
+    loading: false,
+    errors: {} }
 export default (state=defaultState, action={}) => {
     switch (action.type) {
-        /*const defaultState = {
-            contacts: [],
-            contact: {name:{}},
-            loading: false,
-            errors: {} }*/
         case 'FETCH_CONTACTS_FULFILLED': {
             return {
                 ...state,
@@ -36,8 +33,7 @@ export default (state=defaultState, action={}) => {
         }
         case 'SAVE_CONTACT_REJECTED': {
             const data = action.payload.response.data;
-            const { "name.first":first, "name.last":last, phone, email
-                } = data.errors;
+            const { "name.first":first, "name.last":last, phone, email} = data.errors;
             const errors = { global: data.message, name: { first,last },  phone, email };
             return {
                 ...state,
@@ -45,7 +41,6 @@ export default (state=defaultState, action={}) => {
                 loading: false
             }
         }
-            "name.first"
 
         default:
         return state;

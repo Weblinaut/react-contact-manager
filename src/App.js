@@ -18,8 +18,7 @@ class App extends Component {
                 Add Contact
             </NavLink>
     </div>
-        <Route exact path="/" component={ContactListPage}/> <Route path="/contacts/new" component={ContactFormPage}/> <Route path="/contacts/edit/:_id"
-                                                                                                                             component={ContactFormPage}/>
+        <Route exact path="/" component={ContactListPage}/> <Route path="/contacts/new" component={ContactFormPage}/> <Route path="/contacts/edit/:_id" component={ContactFormPage}/>
     </Container>
     );
     } }

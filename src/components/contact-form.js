@@ -29,4 +29,3 @@ render() {
         </Grid> )
 } }
 export default reduxForm({form: 'contact'})(ContactForm);
-'contact'
