@@ -23,10 +23,10 @@ module.exports = function (app) {
         validator: function(v) {
           return /^\+(?:[0-9] ?){6,14}[0-9]$/.test(v);
         },
-        message: '{VALUE} is not a ➥valid international phone number!'
+        message: '{VALUE} is not a valid international phone number!'
       }
     },
-    createdAt: { type: Date, 'default': Date.now }, // Commented out expression for throw error
+    createdAt: { type: Date, 'default': Date.now },
     updatedAt: { type: Date, 'default': Date.now }
   });
   return mongooseClient.model('contact', contact);
