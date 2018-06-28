@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import { Card, Button, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+
 export default function ContactCard({contact, deleteContact}) {
     return (
         <Card>
@@ -16,8 +18,8 @@ export default function ContactCard({contact, deleteContact}) {
             </Card.Content>
             <Card.Content extra>
                 <div className="ui two buttons">
-                    <Button basic color="green">Edit</Button>
-                    <Button basic color="red">Delete</Button>
+                    <Link to={`/contacts/edit/${contact._id}`} className="ui basic button green">Edit</Link>
+                    <Button basic color="red" onClick={() => deleteContact(contact._id)} >Delete</Button>
                 </div>
             </Card.Content>
         </Card> )
