@@ -5,6 +5,12 @@ import classnames from 'classnames';
 
 
 class ContactForm extends Component {
+    componentWillReceiveProps = (nextProps) => { // Receive Contact data Asynchronously
+        const {contact} = nextProps;
+        if (contact._id !== this.props.contact._id) { // Initialize form only once
+            this.props.initialize(contact)
+        }
+    }
 
     renderField = ({ input, label, type, meta: { touched, error }
     }) => (
@@ -57,12 +63,7 @@ const validate = (values) => {
   return errors;
 
 }
-let componentWillReceiveProps = (nextProps) => { // Receive Contact data Asynchronously
-    const {contact} = nextProps;
-    if (contact._id !== this.props.contact._id) { // Initialize form only once
-        this.props.initialize(contact)
-    }
-}
+
 
 
 

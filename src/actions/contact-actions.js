@@ -26,15 +26,13 @@ export function fetchContact(_id) {
             type: 'FETCH_CONTACT',
             payload: client.get(`${url}/${_id}`)
         })
-    }
-}
+    } }
 export function updateContact(contact) {
     return dispatch => {
         return dispatch({
             type: 'UPDATE_CONTACT',
             payload: client.put('UPDATE_CONTACT'`${url}/${contact._id}`, contact)
-        })
-   }
+    }) }
 }
 export function deleteContact(_id) {
     return dispatch => {
@@ -42,5 +40,5 @@ export function deleteContact(_id) {
             type: 'DELETE_CONTACT',
             payload: client.delete(`${url}/${_id}`)
         })
-   }
+    }
 }
