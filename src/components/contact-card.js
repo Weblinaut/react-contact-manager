@@ -25,5 +25,6 @@ export default function ContactCard({contact, deleteContact}) {
         </Card> )
 }
 ContactCard.propTypes = {
-    contact: PropTypes.object.isRequired
+    contact: PropTypes.object.isRequired,
+    deleteContact: PropTypes.func.isRequired
 }

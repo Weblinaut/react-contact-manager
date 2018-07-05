@@ -31,7 +31,7 @@ export function updateContact(contact) {
     return dispatch => {
         return dispatch({
             type: 'UPDATE_CONTACT',
-            payload: client.put('UPDATE_CONTACT'`${url}/${contact._id}`, contact)
+            payload: client.put(`${url}/${contact._id}`, contact)
     }) }
 }
 export function deleteContact(_id) {
